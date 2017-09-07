@@ -1,0 +1,54 @@
+//插件通用的编译脚本
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "com.wangyeming.plugindemo1"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.0.0'
+    compile project(':pluginapi')
+}
+
+static void installPluginAssests(Project project, def variant) {
+    variant.outputs.each { output ->
+        File defaultOutputFile = output.outputFile
+        if (defaultOutputFile != null && defaultOutputFile.name.endsWith('.apk')) {
+            println("install plug assests:" + defaultOutputFile)
+            def destDir = project.rootProject.projectDir.path + File.separator + "app" + File.separator + "src";
+            destDir = destDir + File.separator + "main" + File.separator + "assets" + File.separator + "plugin";
+            destDir = destDir + defaultOutputFile.absolutePath.substring(defaultOutputFile.absolutePath.lastIndexOf(File.separator));
+            println("defaultOutputFile " + defaultOutputFile)
+            println("destDir " + destDir)
+            GFileUtils.copyFile(defaultOutputFile, new File(destDir))
+        }
+    }
+}
+
+project.afterEvaluate {
+    project.android.applicationVariants.each { variant ->
+        def assembleTaskName = "assemble${variant.name.capitalize()}"
+        def installAssestTask = "pluginInstallAssest${variant.name.capitalize()}"
+        project.task(installAssestTask) << {
+            installPluginAssests(project, variant);
+        }
+        def installTask = project.tasks.findByName(installAssestTask)
+        installTask.dependsOn assembleTaskName
+    }
+}
+
+

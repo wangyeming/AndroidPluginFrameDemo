@@ -1,0 +1,2 @@
+include ":plugProject:plugindemo1"
+include ":plugProject:plugindemo2"

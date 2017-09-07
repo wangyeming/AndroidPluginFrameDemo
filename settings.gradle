@@ -1,0 +1,3 @@
+apply from: "settings_plug.gradle"
+
+include ':app', ':plugin', ':pluginapi'

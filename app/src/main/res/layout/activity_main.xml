@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wangyeming.plugindemo.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/plugin_demo1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="插件：PluginDemo1"/>
+
+            <Button
+                android:id="@+id/plugin_demo1_install"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plugin_demo1_name"
+                android:text="安装插件"/>
+
+            <Button
+                android:id="@+id/plugin_demo1_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/plugin_demo1_install"
+                android:layout_toRightOf="@id/plugin_demo1_install"
+                android:layout_marginLeft="16dp"
+                android:text="卸载插件"
+                android:enabled="false"/>
+
+            <LinearLayout
+                android:id="@+id/plugin_demo1_route_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plugin_demo1_install"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/plugin_demo2_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="插件：PluginDemo2"/>
+
+            <Button
+                android:id="@+id/plugin_demo2_install"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plugin_demo2_name"
+                android:text="安装插件"/>
+
+            <Button
+                android:id="@+id/plugin_demo2_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/plugin_demo2_install"
+                android:layout_toRightOf="@id/plugin_demo2_install"
+                android:layout_marginLeft="16dp"
+                android:text="卸载插件"
+                android:enabled="false"/>
+
+            <TableLayout
+                android:id="@+id/plugin_demo2_route_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/plugin_demo2_install"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

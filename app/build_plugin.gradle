@@ -1,0 +1,36 @@
+project.afterEvaluate {
+    project.android.applicationVariants.each { variant ->
+        def beforeInstallPluginTaskName = "generate${variant.name.capitalize()}Assets"
+        def beforeInstallPluginTask = project.tasks.findByName(beforeInstallPluginTaskName)
+        def afterInstallPluginTaskName = "merge${variant.name.capitalize()}Assets"
+        def afterInstallPluginTask = project.tasks.findByName(afterInstallPluginTaskName)
+
+        if (beforeInstallPluginTask != null) {
+            def assestPluginDir = project.projectDir.path + File.separator + "src"
+            assestPluginDir = assestPluginDir + File.separator + "main" + File.separator + "assets" + File.separator + "plugin"
+            println(assestPluginDir)
+            GFileUtils.deleteDirectory(new File(assestPluginDir))
+
+
+            def installPluginTaskName = "pluginInstallAssestRelease"
+            if (variant.name.capitalize().contains("Debug")) {
+                installPluginTaskName = "pluginInstallAssestDebug"
+            }
+
+//            println("beforePrapareTask："+installPluginTaskName)
+            Set<Project> projectSet = project.rootProject.getAllprojects()
+//            println(projectSet)
+            for (Project pro : projectSet) {
+                Set<Task> installPluginTask = pro.getTasksByName(installPluginTaskName, false)
+                if (installPluginTask != null && installPluginTask.size() > 0) {
+                    for (Task task : installPluginTask) {
+                        afterInstallPluginTask.dependsOn(task)
+                        if (beforeInstallPluginTask != null) {
+                            task.dependsOn(beforeInstallPluginTask)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
