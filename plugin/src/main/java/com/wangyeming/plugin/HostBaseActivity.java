@@ -187,13 +187,17 @@ public class HostBaseActivity extends FragmentActivity implements IHostActivity 
 
     @Override
     public void onWindowAttributesChanged(WindowManager.LayoutParams params) {
-        mPluginBaseActivity.onWindowAttributesChanged(params);
+        if(mPluginBaseActivity != null) {
+            mPluginBaseActivity.onWindowAttributesChanged(params);
+        }
         super.onWindowAttributesChanged(params);
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        mPluginBaseActivity.onWindowFocusChanged(hasFocus);
+        if(mPluginBaseActivity != null) {
+            mPluginBaseActivity.onWindowFocusChanged(hasFocus);
+        }
         super.onWindowFocusChanged(hasFocus);
     }
 
