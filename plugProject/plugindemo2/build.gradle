@@ -2,3 +2,7 @@ apply plugin: 'com.android.application'
 
 //插件依赖下面脚本编译
 apply from: "${project.rootDir.absolutePath}/pluginapi/plug.gradle"
+
+dependencies {
+    implementation project(":testmodule")
+}

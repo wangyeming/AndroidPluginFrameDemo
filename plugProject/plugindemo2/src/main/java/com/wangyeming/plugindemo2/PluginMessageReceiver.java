@@ -3,6 +3,7 @@ package com.wangyeming.plugindemo2;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.testmodule.ModuleDemoActivity;
 import com.wangyeming.pluginapi.IPluginMessageReceiver;
 import com.wangyeming.pluginapi.PluginHostApi;
 import com.wangyeming.pluginapi.PluginPackage;
@@ -26,6 +27,9 @@ public class PluginMessageReceiver implements IPluginMessageReceiver {
                 break;
             case UrlConstant.DEMO2_PAGE3:
                 PluginHostApi.getInstance().startActivity(context, pluginPackage, intent, Page3Activity.class);
+                break;
+            case UrlConstant.DEMO2_MODULE:
+                PluginHostApi.getInstance().startActivity(context, pluginPackage, intent, ModuleDemoActivity.class);
                 break;
         }
         return true;

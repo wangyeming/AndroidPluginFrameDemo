@@ -11,5 +11,6 @@ public class UrlConstant {
     public static final String DEMO2_PAGE1 = "demo2_page1";
     public static final String DEMO2_PAGE2 = "demo2_page2";
     public static final String DEMO2_PAGE3 = "demo2_page3";
+    public static final String DEMO2_MODULE = "demo2_module";
 
 }

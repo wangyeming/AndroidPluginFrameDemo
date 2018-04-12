@@ -15,6 +15,5 @@ public class Page1Activity extends PluginBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo1_main);
-        Log.d("wym", "Page1Activity onCreate");
     }
 }

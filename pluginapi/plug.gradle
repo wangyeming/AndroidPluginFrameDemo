@@ -1,12 +1,12 @@
 //插件通用的编译脚本
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.wangyeming.plugindemo1"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -20,8 +20,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.0.0'
-    compile project(':pluginapi')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation project(':pluginapi')
 }
 
 static void installPluginAssests(Project project, def variant) {

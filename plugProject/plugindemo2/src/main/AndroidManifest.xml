@@ -10,7 +10,7 @@
         <!--支持urls，必须-->
         <meta-data
             android:name="urls"
-            android:value="demo2_page1|demo2_page2|demo2_page3"/>
+            android:value="demo2_page1|demo2_page2|demo2_page3|demo2_module"/>
         <!-- 设备处理消息入口，必须 -->
         <meta-data
             android:name="message_handler"

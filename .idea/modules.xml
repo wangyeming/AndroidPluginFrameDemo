@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/pluginapi/pluginapi.iml" filepath="$PROJECT_DIR$/pluginapi/pluginapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugProject/plugindemo1/plugindemo1.iml" filepath="$PROJECT_DIR$/plugProject/plugindemo1/plugindemo1.iml" />
       <module fileurl="file://$PROJECT_DIR$/plugProject/plugindemo2/plugindemo2.iml" filepath="$PROJECT_DIR$/plugProject/plugindemo2/plugindemo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testmodule/testmodule.iml" filepath="$PROJECT_DIR$/testmodule/testmodule.iml" />
     </modules>
   </component>
 </project>
